@@ -1,6 +1,6 @@
 # AI Web Hunter
 
-### Building a website with AI — then hunting its vulnerabilities.
+### Building a website with AI / then hunting its vulnerabilities.
 
 **Champlain College · Cybersecurity Capstone**
 **Team:** CJ Batista ([@cjbatista](https://github.com/cjbatista)) · Connor Clune ([@connorclune](https://github.com/connorclune))
