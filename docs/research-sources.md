@@ -11,6 +11,29 @@ Labels:
 - **Incident**: a real disclosed vulnerability or breach
 - **Report**: industry or think-tank research
 - **Standard**: methodology or scoring reference
+- **Champlain library**: full text through our student login (IEEE Xplore, ACM Digital Library)
+
+---
+
+## How we found these sources
+
+- **Search:** web searches for research on the security of AI-generated code and AI-built web apps, run with an AI research assistant (Claude). We started from a list of well-known papers in this area and added newer ones from 2025 and 2026.
+- **Check:** every source was opened on its own page (publisher, DOI, arXiv, NVD, the researcher's site, or vendor docs). Titles, authors, dates, and page numbers were checked against Crossref (the DOI registry) and arXiv. Anything we could not confirm is in section 7.
+- **Library:** on 28 Sept. 2026 we searched the databases the Champlain library gives us (IEEE Xplore, ACM Digital Library, ScienceDirect) and added 3 sources we can read in full with our student login.
+- **Our own finds:** we found Information is Beautiful (section 4) ourselves through the OWASP website.
+- **Paywalls:** for paywalled papers, the details here come from the abstract or a free arXiv copy, not the paid version. Read the full text before quoting a number.
+
+### Getting the full text
+
+| Access | Sources |
+|---|---|
+| Free | Everything in sections 3, 4, and 5, including the ACM TechBrief and Information is Beautiful. The arXiv papers (Deng, Zhao, Andročec, Dora). BaxBench. |
+| Champlain library, IEEE Xplore | Aydın and Bahtiyar, Hamer et al., Pearce et al., Khoury et al. |
+| Champlain library, ACM Digital Library | Perry et al., Fu et al. |
+| Free arXiv copy of a paywalled paper | Tóth et al. ([2404.14459](https://arxiv.org/abs/2404.14459)), Hamer et al. ([2403.15600](https://arxiv.org/abs/2403.15600)), Pearce et al. ([2108.09293](https://arxiv.org/abs/2108.09293)), Perry et al. ([2211.03622](https://arxiv.org/abs/2211.03622)), Fu et al. ([2310.02059](https://arxiv.org/abs/2310.02059)), Khoury et al. ([2304.09655](https://arxiv.org/abs/2304.09655)) |
+| Not in Champlain's databases | Heidaripour et al. (Springer, no free copy). Use the library's [interlibrary loan form](https://docs.google.com/forms/d/e/1FAIpQLScg7AfJrWHMlcHQ2dQNsXuB92LnNo_VL_5b4_4yzEY-YwQmDQ/viewform). |
+
+Library links go through `https://cobalt.champlain.edu/login?url=` followed by the article link. If we read the arXiv copy instead of the published one, we cite the arXiv copy.
 
 ---
 
@@ -35,7 +58,7 @@ Booth, Harold, et al. *Secure Software Development Practices for Generative AI a
 
 ## 2. Academic research (supports the Problem Statement)
 
-These replace the "most of our sources are non-peer reviewed" problem. 9 of the 11 are peer reviewed or accepted.
+These replace the "most of our sources are non-peer reviewed" problem. 11 of the 13 are peer reviewed or accepted.
 
 ### Closest matches to our project
 
@@ -66,6 +89,23 @@ Deng, Junquan, et al. "Understanding the (In)Security of Vibe-Coded Applications
 - **Use:** the only academic source on a named AI app builder (Lovable).
 
 ### Supporting studies
+
+**Aydın and Bahtiyar (2025)**, Peer reviewed, Champlain library
+
+Aydın, Deniz, and Şerif Bahtiyar. "Security Vulnerabilities in AI-Generated JavaScript: A Comparative Study of Large Language Models." *2025 IEEE International Conference on Cyber Security and Resilience (CSR)*, IEEE, 2025, pp. 200-05, https://doi.org/10.1109/CSR64739.2025.11130176. Accessed 28 Sept. 2026.
+
+- 275 of 600 JavaScript snippets from six models (including GPT-4o and Claude 3.5 Sonnet) had vulnerabilities. That's 602 vulnerabilities across 28 CWE types, and every model introduced some.
+- Numbers are from the abstract. Read the full paper before quoting them.
+- **Access:** no free copy. [Open through Champlain](https://cobalt.champlain.edu/login?url=https://ieeexplore.ieee.org/document/11130176).
+- **Use:** our site will most likely be JavaScript, so this is the closest match to what we'll be testing.
+
+**Hamer et al. (2024)**, Peer reviewed, Champlain library
+
+Hamer, Sivana, et al. "Just Another Copy and Paste? Comparing the Security Vulnerabilities of ChatGPT Generated Code and StackOverflow Answers." *2024 IEEE Security and Privacy Workshops (SPW)*, IEEE, 2024, pp. 87-94, https://doi.org/10.1109/SPW63631.2024.00014. Accessed 28 Sept. 2026.
+
+- ChatGPT's code had 248 vulnerabilities against 302 in human StackOverflow answers to the same 108 questions, about 20% fewer. Their conclusion is that no copied code, from AI or people, should be trusted blindly.
+- **Access:** [open through Champlain](https://cobalt.champlain.edu/login?url=https://ieeexplore.ieee.org/document/10579524), or the free copy on [arXiv](https://arxiv.org/abs/2403.15600).
+- **Use:** keeps us fair in Limitations. We are not claiming AI is worse than humans, only that AI-built sites still need testing.
 
 **Vero et al. (2025), BaxBench**, Peer reviewed
 
@@ -176,6 +216,23 @@ Bordjiba, Houssem Eddine, and Paula De la Hoz. "Okta Observes v0 AI Tool Used to
 
 ## 4. Industry and policy reports
 
+**ACM TechBrief on vibe coding (2026)**, Report (policy brief), free
+
+Garfinkel, Simson, et al. *ACM TechBrief: AI-Assisted Software Development, or Vibe Coding: Benefits and Risks of AI-Driven Software Development*. Association for Computing Machinery, 28 Apr. 2026, https://doi.org/10.1145/3807518. Accessed 28 Sept. 2026.
+
+- A 5-page brief from the ACM. It says vibe coding lets people with little coding experience build working apps, but the platforms don't enforce normal software engineering practices. The AI can repeat security flaws from the code it learned from, and the platforms rarely test their output.
+- **Access:** free on the [ACM Digital Library](https://dl.acm.org/doi/full/10.1145/3807518).
+- **Use:** a major computing organization making the same point as our Problem Statement.
+
+**Information is Beautiful: breach tracker**, Data visualization, free (found through OWASP)
+
+McCandless, David, et al. "World's Biggest Data Breaches & Hacks." *Information is Beautiful*, informationisbeautiful.net/visualizations/worlds-biggest-data-breaches-hacks/. Accessed 28 Sept. 2026.
+
+- A regularly updated chart of the largest data breaches and hacks, with a link to the raw data. The page credits its data to the Identity Theft Resource Center, DataBreaches.net, and news reports.
+- It does not flag which breaches involved AI-built sites. It shows how big breaches get in general.
+- It's a compiled chart, not peer-reviewed research. To cite a specific breach from it, cite that breach's original report too.
+- **Use:** Motivation and Limitations. It backs up our draft's point that much of the evidence is about "massive data breaches" rather than GenAI itself.
+
 **Veracode 2025**, Report
 
 Wessling, Jens. "We Asked 100+ AI Models to Write Code. Here's How Many Failed Security Tests." *Veracode*, 30 July 2025, www.veracode.com/blog/genai-code-security-report/. Accessed 28 Sept. 2026.
@@ -278,7 +335,7 @@ Souppaya, Murugiah, et al. *Secure Software Development Framework (SSDF) Version
 ## 6. How these fix the proposal
 
 - **Problem Statement:** add the gap from Heidaripour et al. (complete AI-built apps, especially by novices, are under-studied). Back it with Tóth et al. and Deng et al.
-- **Limitations:** the line "most of the relevant resources we've found have been non-peer reviewed" is no longer true. We now have 9 peer-reviewed or accepted sources. Update or cut that paragraph.
+- **Limitations:** the line "most of the relevant resources we've found have been non-peer reviewed" is no longer true. We now have 11 peer-reviewed or accepted sources. Update or cut that paragraph.
 - **Motivation:** Pew for "AI is all over the web," then the Lovable CVE and Moltbook for "and it leaks real data."
 - **Methodology (new section, if the template has one):** NIST 800-115 phases, OWASP WSTG tests, OWASP Top 10 and CWE for labels, CVSS v4.0 for scores, DVWA as the control, ASVS for re-test.
 - **Test checklist:** the Wiz four risks, plus Heidaripour's categories (headers, CSRF, cookies, sessions), plus Deng's (access control, injection, auth).

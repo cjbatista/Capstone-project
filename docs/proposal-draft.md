@@ -55,7 +55,7 @@ Because we are testing one site built by one tool, our results will show what th
 All testing will stay on our own Proxmox lab, on a network that is not reachable from the internet, using dummy data only. We will not test the AI builder's own platform or any system we do not own. If the site depends on a hosted service we cannot run on our own server, that service is out of scope.
 
 > **What changed:**
-> - The first paragraph is updated. "Most of our sources are non-peer reviewed" is no longer true: we now have 9 peer-reviewed or accepted sources.
+> - The first paragraph is updated. "Most of our sources are non-peer reviewed" is no longer true: we now have 11 peer-reviewed or accepted sources.
 > - The second paragraph is kept as is.
 > - Added a limit on what one site can prove, and a short ethics and scope paragraph that matches Phase 1 sections 1.3 and 1.4.
 
