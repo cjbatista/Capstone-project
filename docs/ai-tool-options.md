@@ -1,6 +1,6 @@
 # Free AI Tools for Building the Site
 
-Goes with Phase 1 section 2 and issue #53. Free plans change often. Everything here was checked on each tool's own pricing page or docs on **28 Sept. 2026**. Links are at the bottom.
+Goes with Phase 1 section 2 and issue #53. Free plans change often. Everything here was checked on each tool's own pricing page or docs on **28 Sept. 2026**. Links are at the bottom. Claude Code is the one exception: it isn't free on its own, but we get it through Champlain's school plan.
 
 ## Quick scorecard
 
@@ -15,13 +15,13 @@ Scored against our selection criteria in [Phase 1, section 2.2](phase-1-research
 | **Replit Agent** | Yes (zip or GitHub) | Partial (built around Replit's database) | Yes | Partial | Yes |
 | **Google AI Studio (Build)** | Yes (zip or GitHub) | Partial (Firestore database is Google-hosted) | Yes | Yes | Yes |
 | **bolt.diy** | Yes (zip) | Partial | Yes | Yes (needs a model) | Yes |
+| **Claude Code** | Yes (local files) | Yes | Yes | Yes (Champlain school plan) | Partial |
 | **Gemini CLI** | Yes (local files) | Yes | Yes | Yes | Partial |
 | **Google Antigravity** | Yes (local files) | Yes | Yes | Yes (weekly limits) | Partial |
 | **GitHub Copilot** | Yes (local files) | Yes | Yes | Partial | Partial |
 | **Cursor** | Yes (local files) | Yes | Yes | Partial (limits not published) | Partial |
 
 **Not an option:**
-- **Claude Code** is not on Claude's free plan. The cheapest plan with it is Pro, $20 a month.
 - **Firebase Studio** stopped taking new sign-ups on 22 June 2026 and shuts down 22 March 2027.
 - **Base44:** GitHub sync needs the paid Builder plan.
 - **Anything** (formerly Create.xyz): building an app needs a paid plan.
@@ -93,6 +93,17 @@ These all score "Partial" on criterion 5. Our Phase 1 doc worries that with thes
 
 One way around that: give the agent one plain feature prompt, accept whatever design it picks, and log every prompt. Deng et al. (2026) studied apps built with Claude Code as vibe-coded apps, so the research does count agent-built apps. That's a team call.
 
+### Claude Code
+- **How we get it:** Champlain's school plan gives us Claude Pro, which includes Claude Code, so it costs us nothing. It is not on Claude's regular free plan.
+- **Ups:**
+  - Deng et al. (2026), our closest academic source, studied apps built with Claude Code and Lovable. If we use one of those two, we can compare our findings directly with theirs.
+  - Builds a whole app from one prompt, in whatever stack we ask for (for example Node + SQLite), so the whole backend can run on our VM with nothing hosted.
+  - No model setup, unlike Dyad or bolt.diy.
+- **Downs:**
+  - Scores "Partial" on criterion 5, like the other coding agents, so we need the one-prompt rule above.
+  - Pro has usage limits, so a long build session could hit one and have to wait for it to reset.
+  - Make sure we're both signed in on the school plan before the trial.
+
 ### Gemini CLI
 - **Free plan:** free and open source (Apache 2.0). 60 requests a minute and 1,000 a day with a personal Google account.
 - **Ups:** the most generous free option. It builds in whatever stack we ask for (for example Node + SQLite), so the whole backend runs on our VM with nothing hosted.
@@ -127,9 +138,11 @@ Also plan for installing packages. The VM has no internet access, so npm package
 Section 2.3 says we trial the two best options with the same prompt. Based on the scorecard:
 
 1. **Lovable with self-hosted Supabase.** The strongest research angle: the most published work to compare with, and it makes row level security testable. The risk is the 30-credit limit and the extra Supabase setup.
-2. **Dyad.** Everything local and free, and still a "prompt in, app out" builder. The risk is setup time and model quality.
+2. **Claude Code, with the one-prompt rule.** Free for us through the school plan, no model setup, and it's the other tool Deng et al. studied, so both picks line up with that paper. The risk is criterion 5, which the one-prompt rule handles.
 
-**Backup:** Gemini CLI, if both of those eat too much time, with the one-prompt rule above.
+**Backup:** Dyad, if we want a "prompt in, app out" builder that runs fully local. Its risk is setup time and model quality.
+
+Updated 28 Sept. 2026: Claude Code replaced Dyad on the shortlist once we counted our school plan. The first #53 comment still lists Dyad.
 
 This is a suggestion, not the decision. The pick goes in section 2.4 once we've both tried them.
 
@@ -139,7 +152,7 @@ Found while checking the tools. Not changed in the Phase 1 doc yet, since we sho
 
 - **Bolt.new:** the default database is Bolt's hosted Bolt Database, and the Supabase option is paid. So "exports code to any host" is only half true.
 - **Lovable:** row level security *can* be in scope if we self-host Supabase. Also, the direct code download is paid only, so we would use GitHub sync.
-- **Cursor or Claude Code:** Claude Code has no free plan (Pro, $20 a month). Cursor's free plan has unpublished limits.
+- **Cursor or Claude Code:** Claude Code isn't on Claude's regular free plan, but we have it through Champlain's school plan, so "free and low-cost tiers are available" holds for us. Cursor's free plan has unpublished limits.
 
 ## Sources (checked 28 Sept. 2026)
 
