@@ -18,7 +18,7 @@ The full loop: **build → deploy → break → document → harden.**
 ## The Setup
 
 - **Deploy host:** an old Alienware desktop running **Proxmox VE 9.2** (`cj.server`). The website runs on its own VM.
-- **Website:** generated with an AI builder (tool TBD see Phase 1). We favor tools that output real, self-hostable code, so the site is genuinely deployable and testable rather than locked in a hosted builder.
+- **Website:** generated with an AI builder (tool TBD, see [Phase 1](docs/phase-1-research-and-planning.md) and [AI tool options](docs/ai-tool-options.md)). We favor tools that output real, self-hostable code, so the site is genuinely deployable and testable rather than locked in a hosted builder.
 - **Attack box:** Kali Linux, working an OWASP-based methodology — Nmap, Nikto, ZAP/Burp, sqlmap, plus a vulnerability scanner.
 
 ## Plan
@@ -32,3 +32,13 @@ The full loop: **build → deploy → break → document → harden.**
 | **5. Documentation & Presentation** | Attack walkthrough, architecture & network diagrams, demo video, final presentation, repo cleanup |
 
 Work is tracked in **[Issues](../../issues)**, grouped by the milestones above and split between CJ and Connor.
+
+## Docs
+
+| Doc | What it is |
+|-----|------------|
+| [Scope](docs/scope.md) | Project description, success criteria, who does what, timeline by phase |
+| [Phase 1: Research and Planning](docs/phase-1-research-and-planning.md) | Scope, boundaries, tool options, benchmark questions, feature set, test method, exit criteria |
+| [AI tool options](docs/ai-tool-options.md) | Free AI builders compared on our selection criteria, with ups and downs (issue #53) |
+| [Research sources](docs/research-sources.md) | Verified sources in MLA 9, marked peer reviewed or not |
+| [Proposal (revised draft)](docs/proposal-draft.md) | Our proposal with suggested edits and open questions |
