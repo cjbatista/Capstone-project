@@ -23,6 +23,8 @@ Scored against our selection criteria in [Phase 1, section 2.2](phase-1-research
 **Not an option:**
 - **Claude Code** is not on Claude's free plan. The cheapest plan with it is Pro, $20 a month.
 - **Firebase Studio** stopped taking new sign-ups on 22 June 2026 and shuts down 22 March 2027.
+- **Base44:** GitHub sync needs the paid Builder plan.
+- **Anything** (formerly Create.xyz): building an app needs a paid plan.
 - **Wix and Squarespace** can't export code.
 
 ## App builders (you describe the app, it builds the whole thing)
@@ -32,7 +34,8 @@ Scored against our selection criteria in [Phase 1, section 2.2](phase-1-research
 - **Getting the code out:** GitHub sync works on every plan, free included. The direct "Download codebase" button is paid only, so we would use GitHub.
 - **Ups:**
   - Most published research to compare our results against: the CVE-2025-48757 data leak, Escape's scan of 4,000+ Lovable apps, Deng et al. (2026), and the April 2026 platform leak.
-  - Its backend is Supabase, which is open source and can be self-hosted with Docker. If we self-host it, the row level security weakness everyone writes about becomes something we can actually test in scope.
+  - New apps (since 13 May 2026) use TanStack Start, which runs a Node server. The backend is Lovable Cloud, built on Supabase.
+  - Lovable's own docs list self-hosted Supabase as a supported place to move the backend. If we self-host it, the row level security weakness everyone writes about becomes something we can actually test in scope.
 - **Downs:**
   - 30 credits a month is tight. We would need to write a good prompt up front and not waste credits on small fixes.
   - Self-hosting Supabase adds a Phase 3 task. Supabase lists 4 GB RAM minimum (8 GB recommended), which has to fit on the Alienware next to the Kali VM.
@@ -54,7 +57,8 @@ Scored against our selection criteria in [Phase 1, section 2.2](phase-1-research
 - **Ups:** fast, builds front end and back end together, and the free plan is generous.
 - **Downs:**
   - The default backend is **Bolt Database**, a Postgres database hosted on Bolt's cloud. Using Supabase instead is only on the Pro and Teams plans.
-  - So Bolt has the same hosted-backend problem as Lovable, and there's no documented way to self-host Bolt Database. Our Phase 1 doc says Bolt "exports code to any host". That's true for the front end, but not for the default database.
+  - Bolt Database is built on Supabase. Moving it off Bolt means "claiming" it into Supabase (paid plans) or rebuilding the backend on self-hosted Supabase ourselves.
+  - So Bolt has the same hosted-backend problem as Lovable, with less documentation on moving it. Our Phase 1 doc says Bolt "exports code to any host". That's true for the front end, but not for the default database.
 
 ### v0 (Vercel)
 - **Free plan:** $5 of credits a month, 7 messages a day. GitHub sync is included.
@@ -108,6 +112,16 @@ One way around that: give the agent one plain feature prompt, accept whatever de
 - **Free plan:** Hobby, "limited Agent requests". No number is published.
 - **Downs:** we can't plan around a limit we don't know.
 
+## Tip for whichever tool we pick
+
+Put one fixed line in the first prompt:
+
+> "The app must run self-contained on our own offline Linux server, with a local database and no third-party login or storage services."
+
+That's a deployment rule, not a security decision, so the AI still makes the choices we are studying (criterion 5). Without it, most of these tools default to hosted services.
+
+Also plan for installing packages. The VM has no internet access, so npm packages and any Docker images (like self-hosted Supabase) have to be pulled during setup or copied in.
+
 ## Suggested shortlist for the trial (section 2.3)
 
 Section 2.3 says we trial the two best options with the same prompt. Based on the scorecard:
@@ -131,8 +145,10 @@ Found while checking the tools. Not changed in the Phase 1 doc yet, since we sho
 
 - Bolt pricing: https://bolt.new/pricing
 - Bolt Database docs: https://support.bolt.new/cloud/database
+- Bolt Database advanced settings: https://support.bolt.new/cloud/database/advanced
 - Lovable pricing: https://lovable.dev/pricing
 - Lovable GitHub sync docs: https://docs.lovable.dev/integrations/github
+- Lovable hosting and ownership docs: https://docs.lovable.dev/tips-tricks/deployment-hosting-ownership
 - v0 pricing: https://v0.app/pricing
 - v0 docs: https://v0.app/docs/llms.txt
 - Replit pricing: https://replit.com/pricing
@@ -148,4 +164,6 @@ Found while checking the tools. Not changed in the Phase 1 doc yet, since we sho
 - GitHub Copilot plans: https://docs.github.com/en/copilot/get-started/plans
 - Cursor pricing: https://cursor.com/pricing
 - Claude pricing: https://claude.com/pricing
+- Base44 GitHub sync docs: https://docs.base44.com/developers/app-code/local-development/github
+- Anything plans: https://www.anything.com/docs/account/subscriptions
 - Supabase self-hosting with Docker: https://supabase.com/docs/guides/self-hosting/docker
