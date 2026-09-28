@@ -18,13 +18,13 @@ This matches what researchers are seeing. Pew Research Center found that more th
 
 ## Problem Statement
 
-With the increasing prevalence of AI in our web browsing compounding with its involvement elsewhere in our daily life, more websites are being built by people with no security background, using tools that write the code for them. Research already shows that AI-written code is often insecure. In one early study, about 40% of programs written by GitHub Copilot were vulnerable (Pearce et al.). In another, people using an AI assistant wrote less secure code while feeling more confident that it was secure (Perry et al.). Most of this research tests small pieces of code, though. Much less is known about the security of complete applications built with AI, especially when they are built by novices (Heidaripour et al.).
+With the increasing prevalence of AI in our web browsing compounding with its involvement elsewhere in our daily life, more websites are being built by people with no security background, using tools that write the code for them. Research already shows that AI-written code is often insecure. In one early study, about 40% of programs written by GitHub Copilot were vulnerable (Pearce et al.). In another, people using an AI assistant wrote less secure code while feeling more confident that it was secure (Perry et al.). OWASP, the main authority on web application security, now lists "inappropriate trust in AI generated code," or vibe coding, as an emerging risk in its 2025 Top 10 ("X03:2025"). Most of this research tests small pieces of code, though. Much less is known about the security of complete applications built with AI, especially when they are built by novices (Heidaripour et al.).
 
 We want to find out whether the people interacting with these sites can reasonably expect their privacy and security not to be compromised.
 
 **Research question:** What security weaknesses does a website built by an AI website builder contain by default, and can an attacker use them to reach the data the site is meant to protect?
 
-> **What changed:** the original said what we want ("ensure these sites are secure") but not what the problem is. Now it names the gap (little research on complete AI-built sites) and ends with one research question we can answer by the end of the project.
+> **What changed:** the original said what we want ("ensure these sites are secure") but not what the problem is. Now it names the gap (little research on complete AI-built sites), cites OWASP's own 2025 entry on vibe coding, and ends with one research question we can answer by the end of the project.
 
 ---
 
@@ -83,10 +83,13 @@ Tóth, Rebeka, et al. "LLMs in Web Development: Evaluating LLM-Generated PHP Cod
 
 Vero, Mark, et al. "BaxBench: Can LLMs Generate Correct and Secure Backends?" *Proceedings of the 42nd International Conference on Machine Learning*, edited by Aarti Singh et al., PMLR, 2025, pp. 61344-90. Proceedings of Machine Learning Research 267, proceedings.mlr.press/v267/vero25a.html. Accessed 28 Sept. 2026.
 
+"X03:2025 Inappropriate Trust in AI Generated Code ('Vibe Coding')." *OWASP Top 10:2025*, OWASP Foundation, 2025, top10.owasp.org/2025/X01_2025-Next_Steps/. Accessed 28 Sept. 2026.
+
 > **What changed:**
 > - One style (MLA 9), listing only sources that are cited in the text.
 > - The Pew news article is replaced with Pew's own report.
-> - The OWASP GenAI project and NIST SP 800-218A are dropped from this list, since the text doesn't cite them anymore. Both are still in [research-sources.md](research-sources.md) if we want them back.
+> - The OWASP GenAI project is replaced with OWASP's own Top 10:2025 entry on vibe coding (X03:2025), which is about AI-written code. The GenAI project is about apps that use AI.
+> - NIST SP 800-218A is dropped, since the text doesn't cite it anymore. Both older sources are still in [research-sources.md](research-sources.md) if we want them back.
 
 ---
 

@@ -20,6 +20,7 @@ Labels:
 - **Search:** web searches for research on the security of AI-generated code and AI-built web apps, run with an AI research assistant (Claude). We started from a list of well-known papers in this area and added newer ones from 2025 and 2026.
 - **Check:** every source was opened on its own page (publisher, DOI, arXiv, NVD, the researcher's site, or vendor docs). Titles, authors, dates, and page numbers were checked against Crossref (the DOI registry) and arXiv. Anything we could not confirm is in section 7.
 - **Library:** on 28 Sept. 2026 we searched the databases the Champlain library gives us (IEEE Xplore, ACM Digital Library, ScienceDirect) and added 3 sources we can read in full with our student login.
+- **OWASP:** on 28 Sept. 2026 we went back through the OWASP site and checked the sources OWASP itself cites. That turned up OWASP's own entry on vibe coding (section 5).
 - **Our own finds:** we found Information is Beautiful (section 4) ourselves through the OWASP website.
 - **Paywalls:** for paywalled papers, the details here come from the abstract or a free arXiv copy, not the paid version. Read the full text before quoting a number.
 
@@ -46,7 +47,7 @@ Bestvater, Samuel, et al. "How Much of the Internet Is Written With AI?" *Pew Re
 - Pew checked about 490,000 English web pages with an AI text detector. More than a third of pages published since ChatGPT launched show signs of AI authorship.
 - Note: this is about AI-written *text*, not AI-built *sites*. Use it in Motivation only, as "AI is already all over the web."
 
-**OWASP Gen AI Security Project.** Swap it out. That project is about apps that *contain* an LLM (chatbots, prompt injection), not code an AI wrote. Only keep it if our site ends up with an AI feature, and then cite the specific list:
+**OWASP Gen AI Security Project.** Swap it for OWASP's own vibe coding entry, X03:2025 (section 5). That project is about apps that *contain* an LLM (chatbots, prompt injection), not code an AI wrote. Only keep it if our site ends up with an AI feature, and then cite the specific list:
 
 Wilson, Steve, et al. *OWASP Top 10 for LLM Applications 2026*. OWASP Foundation, Aug. 2026, genai.owasp.org/resource/owasp-genai-llm-top-10-2026/. Accessed 28 Sept. 2026.
 
@@ -272,6 +273,27 @@ Sbano, Ty, et al. "v0: Vibe Coding, Securely." *Vercel*, 4 Aug. 2025, vercel.com
 
 ## 5. Standards and methodology (for issues #54 and #56)
 
+**OWASP Top 10:2025, X03: vibe coding**, Standard (emerging risk)
+
+"X03:2025 Inappropriate Trust in AI Generated Code ('Vibe Coding')." *OWASP Top 10:2025*, OWASP Foundation, 2025, top10.owasp.org/2025/X01_2025-Next_Steps/. Accessed 28 Sept. 2026.
+
+- In the "Next Steps" chapter of the Top 10:2025, OWASP lists "Inappropriate Trust in AI Generated Code ('Vibe Coding')" as an emerging risk. It defines vibe coding as code written and committed almost entirely without human oversight.
+- It tells developers to fully understand and review all AI code, with their own eyes and with tools like static analysis. It also says vibe coding is not recommended for complex, business-critical, or long-lived programs.
+- **Checking its sources:**
+  - Its only reference is the Secure Code Review Cheat Sheet (below). It maps no CWEs, since OWASP says there are no CVEs or CWEs for AI-generated code yet.
+  - It says AI code "often contains more vulnerabilities" than human code, but gives no source for that. The studies are mixed. Perry et al. found people with an AI assistant wrote less secure code, but Hamer et al. found ChatGPT's code had fewer vulnerabilities than human StackOverflow answers. Cite this as OWASP's position and back it with the studies, not as a proven fact.
+- **Use:** our best OWASP citation. OWASP naming vibe coding as a risk supports our Problem Statement.
+
+**OWASP Secure Code Review Cheat Sheet**, Standard
+
+"Secure Code Review Cheat Sheet." *OWASP Cheat Sheet Series*, OWASP Foundation, cheatsheetseries.owasp.org/cheatsheets/Secure_Code_Review_Cheat_Sheet.html. Accessed 28 Sept. 2026.
+
+- The method X03 points to for reviewing AI code. It doesn't mention AI itself.
+- **Use:** how we do the "review the generated source code" step in Phase 1 section 1.2.
+- **More from OWASP's own references:** the Top 10 category pages list the guides to test each category with. For example:
+  - A01 Broken Access Control: ASVS V8 Authorization, WSTG Authorization Testing, and the Authorization Cheat Sheet.
+  - A07 Authentication Failures: the Authentication Cheat Sheet.
+
 **OWASP Top 10:2025**, Standard
 
 *OWASP Top 10:2025*. OWASP Foundation, 2025, top10.owasp.org/2025/. Accessed 28 Sept. 2026.
@@ -334,7 +356,7 @@ Souppaya, Murugiah, et al. *Secure Software Development Framework (SSDF) Version
 
 ## 6. How these fix the proposal
 
-- **Problem Statement:** add the gap from Heidaripour et al. (complete AI-built apps, especially by novices, are under-studied). Back it with Tóth et al. and Deng et al.
+- **Problem Statement:** cite OWASP's X03:2025 vibe coding entry, then add the gap from Heidaripour et al. (complete AI-built apps, especially by novices, are under-studied). Back it with Tóth et al. and Deng et al.
 - **Limitations:** the line "most of the relevant resources we've found have been non-peer reviewed" is no longer true. We now have 11 peer-reviewed or accepted sources. Update or cut that paragraph.
 - **Motivation:** Pew for "AI is all over the web," then the Lovable CVE and Moltbook for "and it leaks real data."
 - **Methodology (new section, if the template has one):** NIST 800-115 phases, OWASP WSTG tests, OWASP Top 10 and CWE for labels, CVSS v4.0 for scores, DVWA as the control, ASVS for re-test.
