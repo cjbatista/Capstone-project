@@ -77,7 +77,7 @@ An authorization statement confirming team ownership of the target environment w
 
 ### 1.5 Project Constraints
 
-The project must be completed within a single academic term across the five defined phases. Phases 1 through 3 are preparatory, and schedule pressure must not be allowed to reduce the time available for Phase 4 testing.
+The project must be completed within one academic year across the five defined phases. Phases 1 through 3 are preparatory, and schedule pressure must not be allowed to reduce the time available for Phase 4 testing.
 
 All virtual machines are hosted on a single Alienware desktop running Proxmox VE 9.2. Available memory and storage on that host limit the total number of virtual machines that can run concurrently.
 
@@ -176,6 +176,8 @@ Will the benchmark application appear in the final report, or is it internal pre
 ### 3.4 Preliminary Position
 
 OWASP Juice Shop appears to offer the stronger technology-stack alignment, while DVWA offers an easier initial learning curve. One possible approach is to use DVWA for early skill development and Juice Shop as the comparison baseline in the final report. This approach requires deploying and maintaining two applications, and the team should determine whether that cost is justified.
+
+**Decision (29 Sept. 2026):** DVWA will be used as a practice target (skill development) before we test our own site. Using Juice Shop as a comparison baseline is still open.
 
 ## 4. Application Feature Requirements
 
