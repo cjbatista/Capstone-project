@@ -99,7 +99,5 @@ These conflict between our docs. Pick one answer for each and make every doc mat
 
 1. **Timeline:** resolved 29 Sept. 2026. It's one academic year, and Phase 1 section 1.5 now says so.
 2. **DVWA:** resolved 29 Sept. 2026. DVWA is a practice target, and both [scope.md](scope.md) and Phase 1 section 3.4 now say so. Juice Shop as a comparison baseline is still open.
-3. **Standard versions:** Phase 1 uses OWASP Top 10 (2021) and CVSS v3.1. The current versions are OWASP Top 10:2025 and CVSS v4.0.
-   - The older ones are still fine if we say why, for example if our tools map to 2021.
-   - The newer ones match the 2025 and 2026 research we cite.
+3. **Standard versions:** resolved 29 Sept. 2026. We use OWASP Top 10:2025 and CVSS v4.0, and Phase 1 now says so.
 4. **AI tool:** most likely Claude Code (29 Sept. 2026), to be confirmed in Phase 1 section 2.4. See [ai-tool-options.md](ai-tool-options.md) and issue #53.

@@ -34,10 +34,10 @@ The following activities are within the scope of the project:
 - Reviewing the generated source code for security weaknesses.
 - Deploying the application within the team's isolated Proxmox lab environment.
 - Performing reconnaissance against the team's application.
-- Testing the application against relevant categories of the OWASP Top 10 (2021).
+- Testing the application against relevant categories of the OWASP Top 10:2025.
 - Using automated security tools to identify potential vulnerabilities.
 - Performing manual validation of automated findings.
-- Assigning CVSS v3.1 scores to confirmed vulnerabilities.
+- Assigning CVSS v4.0 scores to confirmed vulnerabilities.
 - Documenting vulnerabilities introduced by the AI-generated implementation.
 - Remediating selected vulnerabilities.
 - Re-testing the application after remediation.
@@ -208,7 +208,7 @@ Pending. To be completed following tool selection, as available features may dep
 
 ### 5.1 Framework
 
-Testing will follow the OWASP Top 10 (2021), using the OWASP Web Security Testing Guide as the procedural reference for individual test cases.
+Testing will follow the OWASP Top 10:2025, using the OWASP Web Security Testing Guide as the procedural reference for individual test cases.
 
 ### 5.2 Testing Platform
 
@@ -235,7 +235,7 @@ A dedicated Kali Linux virtual machine hosted on the team's Proxmox host will se
 
 ### 5.5 Documentation of Findings
 
-Each confirmed vulnerability will be documented with a description, the affected component, reproduction steps, supporting evidence in the form of screenshots and captured requests and responses, a CVSS v3.1 base score with its vector string, and an analysis of how the vulnerability relates to the AI tool's generated output.
+Each confirmed vulnerability will be documented with a description, the affected component, reproduction steps, supporting evidence in the form of screenshots and captured requests and responses, a CVSS v4.0 score with its vector string, and an analysis of how the vulnerability relates to the AI tool's generated output.
 
 ### 5.6 Remediation and Re-testing
 
