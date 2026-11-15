@@ -12,7 +12,7 @@ We will build a website using an AI code-generation tool, deploy it on our own l
 This project meets its objectives when the following deliverables are complete:
 
 1. A functional website, generated with an AI tool, deployed as a self-hosted VM on our Proxmox lab host.
-2. A completed vulnerability assessment and penetration test, including automated scanning (Nmap, Nikto, ZAP/Burp, sqlmap, and a vulnerability scanner) and manual testing against the OWASP Top 10, with DVWA used as a reference benchmark.
+2. A completed vulnerability assessment and penetration test, including automated scanning (Nmap, Nikto, ZAP/Burp, sqlmap, and a vulnerability scanner) and manual testing against the OWASP Top 10, with DVWA used as a practice target before we test our own site.
 3. A findings report documenting each vulnerability identified, with CVSS scoring and analysis of how the vulnerability relates to the AI tool's output.
 4. Remediation of the highest-severity findings, with re-testing to confirm the fixes are effective.
 5. A final presentation package, including an attack walkthrough, architecture and network diagrams, a demo video, and a completed repository.

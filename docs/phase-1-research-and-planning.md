@@ -34,10 +34,10 @@ The following activities are within the scope of the project:
 - Reviewing the generated source code for security weaknesses.
 - Deploying the application within the team's isolated Proxmox lab environment.
 - Performing reconnaissance against the team's application.
-- Testing the application against relevant categories of the OWASP Top 10 (2021).
+- Testing the application against relevant categories of the OWASP Top 10:2025.
 - Using automated security tools to identify potential vulnerabilities.
 - Performing manual validation of automated findings.
-- Assigning CVSS v3.1 scores to confirmed vulnerabilities.
+- Assigning CVSS v4.0 scores to confirmed vulnerabilities.
 - Documenting vulnerabilities introduced by the AI-generated implementation.
 - Remediating selected vulnerabilities.
 - Re-testing the application after remediation.
@@ -77,9 +77,9 @@ An authorization statement confirming team ownership of the target environment w
 
 ### 1.5 Project Constraints
 
-The project must be completed within a single academic term across the five defined phases. Phases 1 through 3 are preparatory, and schedule pressure must not be allowed to reduce the time available for Phase 4 testing.
+The project must be completed within one academic year across the five defined phases. Phases 1 through 3 are preparatory, and schedule pressure must not be allowed to reduce the time available for Phase 4 testing.
 
-All virtual machines are hosted on a single Alienware desktop running Proxmox VE 9.2. Available memory and storage on that host limit the total number of virtual machines that can run concurrently.
+All virtual machines are hosted on a single Dell PowerEdge R740 running Proxmox VE 9.2.2 (see [lab-setup.md](lab-setup.md)). The project first planned to use an Alienware desktop. Available memory and storage on that host limit the total number of virtual machines that can run concurrently.
 
 The project will use free-tier and open-source tooling. Any tool that requires a paid subscription to export application code or to complete a full security scan will be identified during tool evaluation and excluded if a suitable free alternative exists.
 
@@ -177,6 +177,8 @@ Will the benchmark application appear in the final report, or is it internal pre
 
 OWASP Juice Shop appears to offer the stronger technology-stack alignment, while DVWA offers an easier initial learning curve. One possible approach is to use DVWA for early skill development and Juice Shop as the comparison baseline in the final report. This approach requires deploying and maintaining two applications, and the team should determine whether that cost is justified.
 
+**Decision (29 Sept. 2026):** DVWA will be used as a practice target (skill development) before we test our own site. Using Juice Shop as a comparison baseline is still open.
+
 ## 4. Application Feature Requirements
 
 ### 4.1 Draft Feature Set
@@ -206,7 +208,7 @@ Pending. To be completed following tool selection, as available features may dep
 
 ### 5.1 Framework
 
-Testing will follow the OWASP Top 10 (2021), using the OWASP Web Security Testing Guide as the procedural reference for individual test cases.
+Testing will follow the OWASP Top 10:2025, using the OWASP Web Security Testing Guide as the procedural reference for individual test cases.
 
 ### 5.2 Testing Platform
 
@@ -233,7 +235,7 @@ A dedicated Kali Linux virtual machine hosted on the team's Proxmox host will se
 
 ### 5.5 Documentation of Findings
 
-Each confirmed vulnerability will be documented with a description, the affected component, reproduction steps, supporting evidence in the form of screenshots and captured requests and responses, a CVSS v3.1 base score with its vector string, and an analysis of how the vulnerability relates to the AI tool's generated output.
+Each confirmed vulnerability will be documented with a description, the affected component, reproduction steps, supporting evidence in the form of screenshots and captured requests and responses, a CVSS v4.0 score with its vector string, and an analysis of how the vulnerability relates to the AI tool's generated output.
 
 ### 5.6 Remediation and Re-testing
 
