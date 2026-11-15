@@ -362,7 +362,7 @@ Souppaya, Murugiah, et al. *Secure Software Development Framework (SSDF) Version
 - **Methodology (new section, if the template has one):** NIST 800-115 phases, OWASP WSTG tests, OWASP Top 10 and CWE for labels, CVSS v4.0 for scores, DVWA as the control, ASVS for re-test.
 - **Test checklist:** the Wiz four risks, plus Heidaripour's categories (headers, CSRF, cookies, sessions), plus Deng's (access control, injection, auth).
 - **Optional, only if time:** Andročec's twin-prompt idea. Build the site twice, once with a normal prompt and once asking for security, then compare. That changes our "one site" scope, so it's a team decision.
-- **For #53 (picking the builder):** Lovable has the most published research (the CVE, Escape, Deng, the April 2026 leak), which makes our results easy to compare. But its backend normally runs on hosted Supabase, so self-hosting it on the Alienware needs a plan. See [ai-tool-options.md](ai-tool-options.md). Decide in #53.
+- **For #53 (picking the builder):** Lovable has the most published research (the CVE, Escape, Deng, the April 2026 leak), which makes our results easy to compare. But its backend normally runs on hosted Supabase, so self-hosting it on our R740 needs a plan. See [ai-tool-options.md](ai-tool-options.md). Decide in #53.
 
 ---
 

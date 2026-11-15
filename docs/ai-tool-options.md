@@ -38,7 +38,7 @@ Scored against our selection criteria in [Phase 1, section 2.2](phase-1-research
   - Lovable's own docs list self-hosted Supabase as a supported place to move the backend. If we self-host it, the row level security weakness everyone writes about becomes something we can actually test in scope.
 - **Downs:**
   - 30 credits a month is tight. We would need to write a good prompt up front and not waste credits on small fixes.
-  - Self-hosting Supabase adds a Phase 3 task. Supabase lists 4 GB RAM minimum (8 GB recommended), which has to fit on the Alienware next to the Kali VM.
+  - Self-hosting Supabase adds a Phase 3 task. Supabase lists 4 GB RAM minimum (8 GB recommended), which has to fit on the R740 next to the Kali VM. We have not recorded the R740's memory yet ([lab-setup.md](lab-setup.md#not-recorded-yet)).
 
 ### Dyad
 - **Free plan:** free and open source (Apache 2.0, except a separate "pro" folder). Runs on our own computer. Latest release v1.16.0, 21 Sept. 2026.
@@ -49,7 +49,7 @@ Scored against our selection criteria in [Phase 1, section 2.2](phase-1-research
   - Active project.
 - **Downs:**
   - Setup time, and results depend on which model we plug in.
-  - We have not checked how well a local model runs on the Alienware, or the current Gemini API free limits.
+  - We have not checked how well a local model runs on the R740, or the current Gemini API free limits.
 
 ### Bolt.new
 - **Free plan:** 1M tokens a month, 300K a day. Includes databases and hosting.
