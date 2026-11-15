@@ -79,7 +79,7 @@ An authorization statement confirming team ownership of the target environment w
 
 The project must be completed within one academic year across the five defined phases. Phases 1 through 3 are preparatory, and schedule pressure must not be allowed to reduce the time available for Phase 4 testing.
 
-All virtual machines are hosted on a single Dell PowerEdge R740 running Proxmox VE 9.2.2 (see [lab-setup.md](lab-setup.md)). The project first planned to use an Alienware desktop. Available memory and storage on that host limit the total number of virtual machines that can run concurrently.
+All virtual machines are hosted on a single Dell PowerEdge R740 running Proxmox VE 9.2.2 (see [lab-setup.md](lab-setup.md)). The Alienware desktop from the first plan is scrapped. Available memory and storage on that host limit the total number of virtual machines that can run concurrently.
 
 The project will use free-tier and open-source tooling. Any tool that requires a paid subscription to export application code or to complete a full security scan will be identified during tool evaluation and excluded if a suitable free alternative exists.
 

@@ -17,7 +17,7 @@ The full loop: **build → deploy → break → document → harden.**
 
 ## The Setup
 
-- **Deploy host:** a **Dell PowerEdge R740** running **Proxmox VE 9.2.2** (node `aiwebhuntsrv`). It is offline and we reach it over one Ethernet cable from a MacBook. The website will run on its own VM. Details: [Lab setup](docs/lab-setup.md). (Our first plan used an old Alienware desktop.)
+- **Deploy host:** a **Dell PowerEdge R740** running **Proxmox VE 9.2.2** (node `aiwebhuntsrv`). It is offline and we reach it over one Ethernet cable from a MacBook. The website will run on its own VM. Details: [Lab setup](docs/lab-setup.md). (The Alienware desktop from our first plan is scrapped. The R740 is our only lab host.)
 - **Website:** generated with an AI builder (tool TBD, see [Phase 1](docs/phase-1-research-and-planning.md) and [AI tool options](docs/ai-tool-options.md)). We favor tools that output real, self-hostable code, so the site is genuinely deployable and testable rather than locked in a hosted builder.
 - **Attack box:** Kali Linux, working an OWASP-based methodology — Nmap, Nikto, ZAP/Burp, sqlmap, plus a vulnerability scanner.
 
@@ -70,7 +70,7 @@ How we did it: [Lab setup](docs/lab-setup.md) and [Network troubleshooting](docs
 - [ ] Decide on iDRAC: fix the login and give it a fixed address, or leave it unplugged.
 - [ ] Add an internal-only Proxmox bridge for the website VM and the Kali VM, so test traffic stays off the management network.
 - [ ] Plan how to copy ISOs and packages onto the offline server.
-- [ ] Rename the "Phase 3: Deploy on Alienware" milestone and update issues #61 to #65 for the R740.
+- [x] Renamed the Phase 3 milestone to "Deploy on the R740" and updated issues #51, #53, #61, #63 and #73 (15 Nov. 2026).
 
 **Close Phase 1**
 
