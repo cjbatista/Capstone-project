@@ -3,6 +3,8 @@
 **Champlain College, Cybersecurity Capstone**
 **Team:** CJ Batista, Connor Clune
 
+> **Updated 15 Nov. 2026 to match our Methodology paper.** Where this plan and the paper differed, the paper wins: the AI tool (section 2.4), the attack device (sections 1.4 and 5.2), destructive testing (sections 1.2 and 1.3), and the project phases (section 1.7). The paper calls this planning work the groundwork before its five phases.
+
 Phase 1 establishes the project's scope, limitations, AI development tool options, application feature requirements, and penetration-testing methodology. The goal is to create a controlled web application using an AI-assisted development tool, deploy it within the team's Proxmox lab environment, and evaluate the security vulnerabilities introduced during the AI-assisted development process.
 
 ## 1. Project Scope
@@ -41,6 +43,7 @@ The following activities are within the scope of the project:
 - Documenting vulnerabilities introduced by the AI-generated implementation.
 - Remediating selected vulnerabilities.
 - Re-testing the application after remediation.
+- Destructive testing, such as crashing services or making permanent changes to server configurations, rolled back from snapshots afterward.
 - Comparing automated findings with manually identified vulnerabilities.
 - Documenting limitations and lessons learned from the AI-assisted development process.
 
@@ -52,7 +55,7 @@ The following activities are outside the scope of this project:
 - Testing the AI development company's production infrastructure.
 - Attempting to compromise the AI provider, its APIs, or its underlying systems.
 - Testing the security of Proxmox itself beyond what is necessary to securely host the project.
-- Conducting denial-of-service or destructive testing.
+- Denial-of-service testing through traffic flooding. A light check for denial-of-service protection, such as refreshing the site a handful of times to see whether a module like Apache's Mod Evasive responds, is part of reconnaissance (section 5.4).
 - Performing attacks against public-facing infrastructure outside the team's controlled lab.
 - Obtaining or testing against real users' sensitive personal information.
 - Deploying intentionally vulnerable software to an uncontrolled or publicly accessible environment.
@@ -67,7 +70,7 @@ The primary target will be the team's deployed web application and its supportin
 
 Testing will be performed within the team's authorized lab network. The application will not be exposed to the public internet at any stage of the project.
 
-The application will be deployed to a dedicated virtual machine on the team's Proxmox host. A separate virtual machine running Kali Linux will serve as the attack platform.
+The application will be deployed to a dedicated virtual machine on the team's Proxmox host. The project uses two devices: the R740, and a secondary device that manages it and is also the device the attacks come from. Which device that is has not been recorded yet ([#81](https://github.com/cjbatista/Capstone-project/issues/81)).
 
 A virtual machine snapshot will be taken prior to the start of testing and prior to each remediation cycle, so that the environment can be restored to a known state and testing can be repeated consistently.
 
@@ -90,6 +93,18 @@ Neither team member is primarily a web application developer. The selected AI de
 - The selected AI development tool will produce exportable application code that can be hosted on the team's own virtual machine without reliance on vendor hosting.
 - The generated application will contain identifiable security weaknesses. If the generated application proves unexpectedly secure, that outcome will be documented as a finding in its own right, and the benchmark application described in Section 3 will take on greater importance in demonstrating testing methodology.
 - The Proxmox host will remain available and operational for the duration of the project.
+
+### 1.7 Project Phases
+
+From our Methodology paper. This planning work comes before them.
+
+| Phase | What happens |
+|---|---|
+| 1. Environment Setup | The R740 and the isolated network: the physical and network foundation |
+| 2. Site Generation and Deployment | Hypervisor and target VM, generate the site with Claude Code, deploy it as generated, take a clean baseline snapshot |
+| 3. Site Reconnaissance | Map the deployed site before any attack: Nmap, walking its features, a light denial-of-service protection check |
+| 4. Attack and Vulnerability Analysis | Run the attacks, measure the results, score each weakness with CVSS |
+| 5. Presentation of Findings | Compile the findings and conclusions into the paper and the final presentation |
 
 ## 2. AI Development Tool Options
 
@@ -141,7 +156,13 @@ Both team members will trial the two highest-scoring candidates using an identic
 
 ### 2.4 Tool Selection
 
-Pending. To be completed before the end of Phase 1 and recorded in this document.
+**Decision: Claude Code**, Anthropic's command-line coding tool, as stated in our Introduction and Methodology papers ([#53](https://github.com/cjbatista/Capstone-project/issues/53)).
+
+- The site is generated from a single prompt that describes a small business site in plain, non-technical language and makes no reference to security, encryption, or input validation. This reflects how a non-expert owner would describe what they want.
+- The exact model, programming language, and framework are fixed and recorded before the build begins.
+- Every prompt, the model version, and the number of generations needed to reach a working site are recorded.
+
+The two-tool trial described in section 2.3 was not recorded.
 
 ## 3. Benchmark Application: Open Questions
 
@@ -200,9 +221,14 @@ Two approaches are available. The team may specify the required features to the 
 
 The second approach produces a stronger research result, because the tool's independent design decisions are the subject of the study. The first approach more reliably guarantees sufficient attack surface for testing. A combined approach is possible, in which a general prompt is issued first and only missing features are requested afterward, with the difference documented.
 
+**Decision:** the general-prompt approach. One plain-language prompt describes a small business site, and we document what the tool builds on its own (section 2.4).
+
 ### 4.3 Feature Set Finalization
 
-Pending. To be completed following tool selection, as available features may depend on the capabilities of the selected tool.
+Per our Methodology paper, the site is expected to have the pages typical of a small business site: a landing page, registration, login, a customer account area, and a payment page. The final count is recorded once the site is generated.
+
+
+Original note: to be completed following tool selection, as available features may depend on the capabilities of the selected tool.
 
 ## 5. Penetration Testing Methodology
 
@@ -212,7 +238,7 @@ Testing will follow the OWASP Top 10:2025, using the OWASP Web Security Testing 
 
 ### 5.2 Testing Platform
 
-A dedicated Kali Linux virtual machine hosted on the team's Proxmox host will serve as the attack platform. All required tooling will be installed and verified prior to the start of Phase 4.
+The secondary device that manages the R740 is also the attack platform (our Methodology paper). Which device that is has not been recorded yet ([#81](https://github.com/cjbatista/Capstone-project/issues/81)). All required tooling will be installed and verified on it before attacks begin.
 
 ### 5.3 Tooling
 
@@ -227,7 +253,7 @@ A dedicated Kali Linux virtual machine hosted on the team's Proxmox host will se
 
 ### 5.4 Testing Sequence
 
-1. Reconnaissance and service enumeration against the target virtual machine.
+1. Reconnaissance and service enumeration against the target virtual machine: Nmap for ports, services, versions, the host OS, and HTTP or HTTPS; walking the site's account features; and a light denial-of-service protection check ([#82](https://github.com/cjbatista/Capstone-project/issues/82)).
 2. Automated scanning using the tools identified above, with all output retained.
 3. Manual testing across the applicable OWASP Top 10 categories, conducted independently of the automated results.
 4. Comparison of manual findings against automated findings. Vulnerabilities identified manually but missed by automated tooling will be documented explicitly, as that gap is a reportable result of this project.
@@ -249,8 +275,8 @@ Phase 1 is complete when the following conditions are met:
 
 - [x] Initial project meeting held with the professor and project direction approved
 - [ ] Scope, limitations, and testing boundaries reviewed and agreed by both team members
-- [ ] AI development tool evaluated and selected, with rationale documented in Section 2.4
+- [x] AI development tool selected, with rationale documented in Section 2.4 (Claude Code)
 - [ ] Benchmark application decision made and documented, including a decision not to use one if that is the outcome
 - [ ] Application feature set finalized in Section 4.3
-- [ ] Testing methodology confirmed and all required tooling installed and verified on the Kali Linux virtual machine
+- [ ] Testing methodology confirmed and all required tooling installed and verified on the attack device
 - [ ] Authorization statement committed to the project repository

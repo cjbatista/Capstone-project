@@ -29,12 +29,15 @@ Task-level work is tracked in GitHub Issues, organized by the project phases bel
 
 ## Timeline by Phase
 
+The phases follow our Methodology paper. Planning comes first.
+
 | Phase | Focus | Deliverable |
 |---|---|---|
-| 1. Research and Planning | Scope definition, professor approval, selection of the AI development tool, DVWA evaluation, definition of feature set and testing methodology | Approved project scope |
-| 2. Website Development | Build the site using the selected tool, implement core features including input handling and authentication, commit code to the repository | Deployable website |
-| 3. Deployment | Provision a Proxmox VM, install required software, deploy the website, optionally deploy DVWA, snapshot the environment prior to testing | Website running on lab infrastructure |
-| 4. Assessment | Automated scanning, manual OWASP Top 10 testing, DVWA testing, documentation of findings with CVSS scores, remediation and re-testing | Completed findings report |
-| 5. Documentation and Presentation | Attack walkthrough, architecture and network diagrams, demo video, final presentation, repository cleanup | Final presentation and repository |
+| Planning: Research and Scope | Scope definition, professor approval, selection of the AI development tool, DVWA evaluation, definition of feature set and testing methodology | Approved project scope |
+| 1. Environment Setup | The R740 server and the isolated network, and the secondary device that manages the server and runs the attacks | Lab ready for the build |
+| 2. Site Generation and Deployment | Hypervisor and target VM, generate the site with Claude Code from one plain-language prompt, deploy it as generated, optionally deploy DVWA, baseline snapshot | Website running on lab infrastructure |
+| 3. Site Reconnaissance | Nmap scan, walk the site's features, light denial-of-service protection check, documented attack map | Attack map |
+| 4. Attack and Vulnerability Analysis | Attacks including destructive ones (rolled back from snapshots), DVWA practice, findings with CVSS scores, remediation and re-testing | Completed findings report |
+| 5. Presentation of Findings | Findings and conclusions in the paper, attack walkthrough, diagrams, demo video, final presentation, repository cleanup | Final presentation and repository |
 
 Specific dates will be added to this table once approved by the professor and reflected as milestones in GitHub Issues.

@@ -128,4 +128,5 @@ Fill these in before Phase 3:
 - [ ] Where the network ports were disabled and the exact setting we changed to enable them.
 - [ ] The Linux name of NIC 4 (for example `eno4`), from the `bridge-ports` line.
 - [ ] iDRAC: whether we keep using it, its login status, and a fixed address if we do.
+- [ ] Which device is the secondary device that manages the R740 and runs the attacks, per our Methodology paper ([#81](https://github.com/cjbatista/Capstone-project/issues/81)).
 - [ ] Where the iDRAC and Proxmox passwords are kept. They go in a password manager, never in this repo.

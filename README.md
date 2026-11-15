@@ -18,20 +18,21 @@ The full loop: **build → deploy → break → document → harden.**
 ## The Setup
 
 - **Deploy host:** a **Dell PowerEdge R740** running **Proxmox VE 9.2.2** (node `aiwebhuntsrv`). It is offline and we reach it over one Ethernet cable from a MacBook. The website will run on its own VM. Details: [Lab setup](docs/lab-setup.md). (The Alienware desktop from our first plan is scrapped. The R740 is our only lab host.)
-- **Website:** generated with an AI builder (tool TBD, see [Phase 1](docs/phase-1-research-and-planning.md) and [AI tool options](docs/ai-tool-options.md)). We favor tools that output real, self-hostable code, so the site is genuinely deployable and testable rather than locked in a hosted builder.
-- **Attack box:** Kali Linux, working an OWASP-based methodology — Nmap, Nikto, ZAP/Burp, sqlmap, plus a vulnerability scanner.
+- **Website:** generated with **Claude Code** from one plain-language prompt for a small business site, with no mention of security ([Phase 1, section 2.4](docs/phase-1-research-and-planning.md#24-tool-selection)). The tool comparison is in [AI tool options](docs/ai-tool-options.md).
+- **Attack device:** a secondary device that also manages the R740 (which one is still to be recorded, [#81](../../issues/81)), working an OWASP-based methodology — Nmap, Nikto, ZAP/Burp, sqlmap, plus a vulnerability scanner.
 
 ## Plan
 
 | Phase | Focus |
 |-------|-------|
-| **1. Research & Planning** | Scope, professor approval, choose the AI tool, research DVWA, define features & pentest methodology |
-| **2. Build the Website** | Scaffold with the AI tool, build core features + real input/auth surfaces, commit the code |
-| **3. Deploy on the R740** | Provision a Proxmox VM, install the stack, deploy the site, (optional) stand up DVWA, snapshot before testing |
-| **4. Pentest & Vuln Assessment** | Automated scans, manual OWASP Top 10, DVWA practice, findings + CVSS scoring, remediate & re-test |
-| **5. Documentation & Presentation** | Attack walkthrough, architecture & network diagrams, demo video, final presentation, repo cleanup |
+| **Planning: Research & Scope** | Scope, professor approval, choose the AI tool, research DVWA, define features & pentest methodology |
+| **1. Environment Setup** | The R740, the isolated network, and the secondary device that manages the server and runs the attacks |
+| **2. Site Generation & Deployment** | Target VM, generate the site with Claude Code from one plain-language prompt, deploy it as generated, baseline snapshot |
+| **3. Site Reconnaissance** | Nmap, walk the site's features, light denial-of-service protection check, attack map |
+| **4. Attack & Vulnerability Analysis** | Attacks (destructive ones rolled back from snapshots), DVWA practice, findings + CVSS scoring, remediate & re-test |
+| **5. Presentation of Findings** | Findings in the paper, attack walkthrough, diagrams, demo video, final presentation, repo cleanup |
 
-Work is tracked in **[Issues](../../issues)**, grouped by the milestones above and split between CJ and Connor.
+The phases follow our Methodology paper. Work is tracked in **[Issues](../../issues)**, grouped by the milestones above and split between CJ and Connor.
 
 ## Progress
 
@@ -39,7 +40,7 @@ Work is tracked in **[Issues](../../issues)**, grouped by the milestones above a
 
 ### Completed work
 
-**Lab server (Phase 3 groundwork)**
+**Lab server (Phase 1: Environment Setup, [#79](../../issues/79))**
 
 - [x] Obtained a Dell PowerEdge R740 server.
 - [x] Connected it to power and brought it online.
@@ -53,7 +54,7 @@ Work is tracked in **[Issues](../../issues)**, grouped by the milestones above a
 
 How we did it: [Lab setup](docs/lab-setup.md) and [Network troubleshooting](docs/network-troubleshooting.md).
 
-**Planning and research (Phase 1)**
+**Planning and research**
 
 - [x] Professor approved the new project direction (#52).
 - [x] Scope doc and full Phase 1 plan written (#51).
@@ -61,32 +62,34 @@ How we did it: [Lab setup](docs/lab-setup.md) and [Network troubleshooting](docs
 - [x] Research sources gathered in MLA 9, 11 of them peer reviewed or accepted.
 - [x] Revised proposal draft with one research question.
 - [x] Decided: one academic year, DVWA as a practice target, OWASP Top 10:2025, CVSS v4.0.
+- [x] Chose Claude Code as the AI tool, with one plain-language small business prompt (#53).
+- [x] Wrote and submitted our Introduction and Methodology papers.
 
 ### Next steps
 
-**Lab server**
+**Phase 1: Environment Setup**
 
-- [ ] Record what is still missing from [Lab setup](docs/lab-setup.md#not-recorded-yet): hardware specs (CPU, memory, disks, RAID mode), Proxmox install choices, and where the ports were enabled.
+- [ ] Record what is still missing from [Lab setup](docs/lab-setup.md#not-recorded-yet): hardware specs (CPU, memory, disks, RAID mode), Proxmox install choices, and where the ports were enabled (#80).
+- [ ] Decide which device is the attack device, install its tools, and confirm it sits on the isolated segment (#81).
 - [ ] Decide on iDRAC: fix the login and give it a fixed address, or leave it unplugged.
-- [ ] Add an internal-only Proxmox bridge for the website VM and the Kali VM, so test traffic stays off the management network.
+- [ ] Add an internal-only Proxmox bridge for the website VM, so test traffic stays off the management network.
 - [ ] Plan how to copy ISOs and packages onto the offline server.
-- [x] Renamed the Phase 3 milestone to "Deploy on the R740" and updated issues #51, #53, #61, #63 and #73 (15 Nov. 2026).
+- [x] Reorganized the milestones into the five phases of our Methodology paper, with Planning first, and updated the issues to say R740 (15 Nov. 2026).
 
-**Close Phase 1**
+**Finish planning**
 
-- [ ] Run the two-tool trial and record the AI tool choice in Phase 1 section 2.4 (#53).
 - [ ] Decide on Juice Shop as a comparison baseline (#54).
 - [ ] Finalize the website's feature set (#55).
-- [ ] Confirm the test method and set up the Kali VM with its tools (#56).
+- [ ] Confirm the test method (#56).
 - [ ] Commit the authorization statement for our own lab (Phase 1 section 1.4).
-- [ ] Mark the Phase 1 exit criteria done and close #51.
+- [ ] Mark the planning exit criteria done and close #51.
 
 **Phases 2 to 5**
 
-- [ ] Phase 2: build the site with the chosen tool and commit its code (#57 to #60).
-- [ ] Phase 3: create the website VM, install the stack, deploy, optional DVWA VM, snapshot before testing (#61 to #65).
-- [ ] Phase 4: automated scans, manual OWASP Top 10 testing, findings with CVSS v4.0 scores, fix and re-test (#66 to #70).
-- [ ] Phase 5: walkthrough, diagrams, demo video, final presentation, repo cleanup (#71 to #75).
+- [ ] Phase 2: generate the site with Claude Code, commit its code, create the website VM, deploy, optional DVWA VM, baseline snapshot (#57 to #65).
+- [ ] Phase 3: reconnaissance and an attack map (#82).
+- [ ] Phase 4: attacks, findings with CVSS v4.0 scores, fix and re-test (#66 to #70).
+- [ ] Phase 5: findings in the paper, walkthrough, diagrams, demo video, final presentation, repo cleanup (#71 to #75).
 
 ## Docs
 
