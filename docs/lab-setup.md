@@ -20,7 +20,7 @@ This is the record of our lab server: the hardware, the Proxmox install, and how
 
 ## Change from the original plan
 
-Our README and Phase 1 plan named an old Alienware desktop as the Proxmox host. The project now runs on the Dell PowerEdge R740 described here.
+Our first plan used an old Alienware desktop as the Proxmox host. The Alienware is scrapped. The Dell PowerEdge R740 described here is our only lab host.
 
 ## Completed work
 
@@ -122,7 +122,7 @@ Being offline also means software for our VMs (ISOs, packages, container images)
 
 Fill these in before Phase 3:
 
-- [ ] Date we got the R740, and why it replaced the Alienware.
+- [ ] Date we got the R740, and one line on why we scrapped the Alienware.
 - [ ] CPU model and core count, memory size, disks, and the RAID controller and its mode. iDRAC (System, Storage) or the Proxmox node Summary page shows these.
 - [ ] Proxmox install choices: install disk, filesystem (ext4, ZFS, or other), and the gateway and DNS typed into the installer.
 - [ ] Where the network ports were disabled and the exact setting we changed to enable them.
